@@ -1,0 +1,57 @@
+name: Docker 2 Gz Releaser
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+
+  pull_request:
+    branches: [ main ]
+    
+concurrency:
+  group: workflow-${{ github.head_ref }}
+  cancel-in-progress: true
+  
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Get current image
+      id: image
+      run: echo "::set-output name=image::$(cat docker-image.txt)"
+      
+    - name: docker pull image
+      run: docker pull ${{ steps.image.outputs.image }}
+      
+    - name: docker save image
+      run: docker save ${{ steps.image.outputs.image }} | gzip > ${{ steps.image.outputs.image }}.gz
+    
+    - name: get size of file
+      run: ls -lah
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.run_number }}
+        release_name: Release Docker2gz_${{ steps.date.outputs.date }}
+        body: |
+          Release Docker2gz_${{ steps.date.outputs.date }}
+      
+    - uses: xresloader/upload-to-github-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        draft: false
+        file: "*.gz"
+        release_id: ${{ steps.create_release.outputs.id }}
+        overwrite: true
+        verbose: true
