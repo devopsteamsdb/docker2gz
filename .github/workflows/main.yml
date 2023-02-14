@@ -26,6 +26,10 @@ jobs:
       id: image
       run: echo "::set-output name=image::$(cat docker-image.txt)"
       
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y_%m_%d_%H_%M')"
+      
     - name: docker pull image
       run: docker pull ${{ steps.image.outputs.image }}
       
