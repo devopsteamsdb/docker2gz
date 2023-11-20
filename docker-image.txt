@@ -1,2 +1,1 @@
-louislam/uptime-kuma:1.22.1
-
+louislam/dockge:1.1.0
