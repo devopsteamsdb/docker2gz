@@ -1,1 +1,1 @@
-gitlab/gitlab-ce:16.6.1-ce.0
+louislam/uptime-kuma:1.23.8
