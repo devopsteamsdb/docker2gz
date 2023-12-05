@@ -1,1 +1,1 @@
-devopsteamsdb/devopsteamsdb:code-server_2022_08_18
+linuxserver/code-server:4.19.1
