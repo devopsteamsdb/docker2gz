@@ -1,1 +1,1 @@
-louislam/dockge:1.1.0
+devopsteamsdb/devopsteamsdb:code-server_2022_08_18
