@@ -1,1 +1,1 @@
-sonatype/nexus:2.15.1-02
+louislam/uptime-kuma:1.23.11
