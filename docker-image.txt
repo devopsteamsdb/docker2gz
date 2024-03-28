@@ -1,1 +1,1 @@
-postgres:13.14
+postgres:12.18
