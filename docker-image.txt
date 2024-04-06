@@ -1,1 +1,1 @@
-public.ecr.aws/bitnami/redis-exporter:1.58.0
+requarks/wiki:2.5.301
