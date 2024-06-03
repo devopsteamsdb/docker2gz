@@ -1,1 +1,1 @@
-requarks/wiki:2.5.301
+splunk/universalforwarder:latest
