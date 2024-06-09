@@ -1,1 +1,1 @@
-docker pull outcoldsolutions/collectorforopenshift:5.18.381
+outcoldsolutions/collectorforopenshift:5.18.381
