@@ -1,1 +1,1 @@
-splunk/universalforwarder:latest
+docker pull outcoldsolutions/collectorforopenshift:5.18.381
