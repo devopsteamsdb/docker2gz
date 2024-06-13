@@ -1,1 +1,1 @@
-outcoldsolutions/collectorforopenshift:5.18.381
+nvidia/samples:vectoradd-cuda11.2.1
