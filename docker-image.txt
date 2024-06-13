@@ -1,1 +1,1 @@
-ghcr.io/kanisterio/kanister-kubectl-1.18:0.109.0
+ghcr.io/kanisterio/kanister-tools:0.109.0
