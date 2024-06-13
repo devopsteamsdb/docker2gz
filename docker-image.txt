@@ -1,1 +1,1 @@
-ghcr.io/kanisterio/postgres-task:262fc0cbc8f0
+ghcr.io/kanisterio/postgres-task:9.6
