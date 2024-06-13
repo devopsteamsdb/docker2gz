@@ -1,1 +1,1 @@
-ghcr.io/kanisterio/mongodb-atlas:0.0.1
+ghcr.io/kanisterio/postgres-kanister-tools:0.109.0
