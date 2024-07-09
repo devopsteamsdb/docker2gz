@@ -1,1 +1,1 @@
-registry.k8s.io/sig-storage/csi-snapshotter:v6.3.3
+docker.io/netapp/trident-autosupport:24.02
