@@ -1,1 +1,1 @@
-docker.io/netapp/trident:24.02.0
+registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.10.0
