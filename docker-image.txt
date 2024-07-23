@@ -1,1 +1,1 @@
-redis:7.2.5-bookworm
+bitnami/redis:7.0.15
