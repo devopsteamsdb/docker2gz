@@ -1,1 +1,1 @@
-docker pull bitnami/keycloak:24.0.5
+bitnami/rabbitmq:3.13.5
