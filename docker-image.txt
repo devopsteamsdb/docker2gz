@@ -1,1 +1,1 @@
-bitnami/keycloak:24.0.5
+redis:6.2.14
