@@ -1,1 +1,1 @@
-bitnami/redis:7.0.15
+bitnami/postgresql:16.3.0
