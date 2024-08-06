@@ -1,1 +1,1 @@
-docker.io/tykio/tyk-operator:v0.18.0
+gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
