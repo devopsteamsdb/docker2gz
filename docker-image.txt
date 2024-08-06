@@ -1,1 +1,1 @@
-gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
+docker.tyk.io/tyk-pump/tyk-pump:v1.10.0
