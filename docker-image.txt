@@ -1,1 +1,1 @@
-docker.tyk.io/tyk-gateway/tyk-gateway:v5.4.0
+docker.io/tykio/tyk-operator:v0.18.0
