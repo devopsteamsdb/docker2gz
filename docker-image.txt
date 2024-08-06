@@ -1,1 +1,1 @@
-minio/minio:RELEASE.2024-07-16T23-46-41Z
+docker.tyk.io/tyk-gateway/tyk-gateway:v5.4.0
