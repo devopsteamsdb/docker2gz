@@ -1,1 +1,1 @@
-docker.tyk.io/tyk-pump/tyk-pump:v1.10.0
+nvcr.io/nvidia/driver:550.90.07-rhcos4.14
