@@ -1,1 +1,1 @@
-nvcr.io/nvidia/driver:550.90.07-rhcos4.14
+devopsteamsdb/devopsteamsdb:python-playwright-uptime-kuma
