@@ -1,1 +1,1 @@
-devopsteamsdb/devopsteamsdb:python-playwright-uptime-kuma
+phpipam/phpipam-cron:v1.7.3
