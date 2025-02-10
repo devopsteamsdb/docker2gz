@@ -1,1 +1,1 @@
-grafana/grafana-image-renderer:3.12.0
+alpine/ansible:2.18.1
