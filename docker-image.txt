@@ -1,1 +1,1 @@
-bitnami/os-shell:12-debian-12-r36
+bitnami/grafana:11.5.1-debian-12-r1
