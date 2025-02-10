@@ -1,1 +1,1 @@
-phpipam/phpipam-www:v1.7.3
+grafana/grafana:11.5.1
