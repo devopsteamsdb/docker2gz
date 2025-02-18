@@ -1,1 +1,1 @@
-quay.io/prometheus-operator/prometheus-operator:v0.56.3
+ghcr.io/grafana/grafana-operator:v5.16.0
