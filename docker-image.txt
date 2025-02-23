@@ -1,1 +1,1 @@
-quay.io/prometheus/prometheus:latest
+quay.io/prometheus/prometheus:v0.56.3
