@@ -1,1 +1,1 @@
-grafana/grafana:12.0.1
+prom/prometheus:v3.4.1
