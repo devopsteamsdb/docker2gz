@@ -1,1 +1,1 @@
-prom/prometheus:v3.4.1
+devopsteamsdb/devopsteamsdb:ocr_2025_06_08_06_29
