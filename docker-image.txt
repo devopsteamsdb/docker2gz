@@ -1,1 +1,1 @@
-devopsteamsdb/devopsteamsdb:ocr_2025_06_09_10_31
+n8nio/n8n:1.103.1
