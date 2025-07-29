@@ -47,7 +47,7 @@ jobs:
     - name: Generate SHA256 checksum
       run: |
         sha256sum ${{ steps.image_string.outputs.image_string }}.gz > ${{ steps.image_string.outputs.image_string }}.checksum.txt
-        cat checksum.txt
+        cat ${{ steps.image_string.outputs.image_string }}.checksum.txt
 
     - name: Create Release
       id: create_release
