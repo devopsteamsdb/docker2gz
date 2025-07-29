@@ -24,15 +24,15 @@ jobs:
 
     - name: Get current image
       id: image
-      run: echo "::set-output name=image::$(cat docker-image.txt)"
+      run: echo "image=$(cat docker-image.txt)" >> $GITHUB_OUTPUT
 
     - name: Get current image string
       id: image_string
-      run: echo "::set-output name=image_string::$(cat docker-image.txt | sed 's/\//_/g')"
+      run: echo "image_string=$(cat docker-image.txt | sed 's/\//_/g')" >> $GITHUB_OUTPUT
 
     - name: Get current date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y_%m_%d_%H_%M')"
+      run: echo "date=$(date +'%Y_%m_%d_%H_%M')" >> $GITHUB_OUTPUT
 
     - name: docker pull image
       run: docker pull ${{ steps.image.outputs.image }}
@@ -40,9 +40,6 @@ jobs:
     - name: docker save image
       run: |
         docker save ${{ steps.image.outputs.image }} | gzip > ${{ steps.image_string.outputs.image_string }}.gz
-
-    - name: get size of file
-      run: ls -lah
 
     - name: Generate SHA256 checksum
       run: |
