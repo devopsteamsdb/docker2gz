@@ -1,1 +1,1 @@
-devopsteamsdb/devopsteamsdb:selenium_powershell_2025_07_28_12_47
+n8nio/n8n:1.122.3
