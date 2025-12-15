@@ -1,1 +1,1 @@
-n8nio/n8n:1.122.3
+alpine/ansible:2.18.6
