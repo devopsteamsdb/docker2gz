@@ -1,1 +1,1 @@
-alpine/ansible:2.18.6
+mongo:4.4.8
