@@ -1,1 +1,1 @@
-rabbitmq:3-management
+mariadb:11.4.5
