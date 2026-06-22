@@ -1,1 +1,1 @@
-mariadb:11.4.5
+ghcr.io/cert-manager/cert-manager-openshift-routes:v0.9.0
