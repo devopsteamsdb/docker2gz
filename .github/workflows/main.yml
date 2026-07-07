@@ -22,59 +22,46 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Get current image
-      id: image
-      run: echo "image=$(cat docker-image.txt)" >> $GITHUB_OUTPUT
-
-    - name: Get current image string
-      id: image_string
-      run: echo "image_string=$(cat docker-image.txt | sed 's/\//_/g')" >> $GITHUB_OUTPUT
-
     - name: Get current date
       id: date
       run: echo "date=$(date +'%Y_%m_%d_%H_%M')" >> $GITHUB_OUTPUT
 
-    - name: docker pull image
-      run: docker pull ${{ steps.image.outputs.image }}
-
-    - name: docker save image
+    - name: Pull, Save and Clean Docker Images
       run: |
-        docker save ${{ steps.image.outputs.image }} | gzip > ${{ steps.image_string.outputs.image_string }}.gz
+        mkdir -p release_assets
+        while IFS= read -r image || [ -n "$image" ]; do
+          # Ignore empty lines and comments
+          [[ -z "$image" || "$image" =~ ^# ]] && continue
+          # Trim whitespace
+          image=$(echo "$image" | xargs)
+          echo "Pulling $image..."
+          docker pull "$image"
+          
+          # Generate safe filename by replacing / and : with _
+          safe_name=$(echo "$image" | tr '/:' '_')
+          tar_path="release_assets/${safe_name}.tar.gz"
+          
+          echo "Saving $image to $tar_path..."
+          docker save "$image" | gzip > "$tar_path"
+          
+          echo "Removing $image from local Docker daemon to save space..."
+          docker rmi "$image"
+        done < docker-image.txt
 
-    - name: Generate SHA256 checksum
+    - name: Generate SHA256 Checksums
       run: |
-        sha256sum ${{ steps.image_string.outputs.image_string }}.gz > ${{ steps.image_string.outputs.image_string }}.checksum.txt
-        cat ${{ steps.image_string.outputs.image_string }}.checksum.txt
+        cd release_assets
+        sha256sum *.tar.gz > sha256.txt
+        cat sha256.txt
 
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create Release and Upload Assets
+      uses: softprops/action-gh-release@v2
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: ${{ github.run_number }}
-        release_name: Release ${{ steps.image.outputs.image }}
+        name: Release ${{ github.run_number }}
         body: |
-          Uploaded on ${{ steps.date.outputs.date }}
-
-    - name: Upload .gz file
-      uses: xresloader/upload-to-github-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        draft: false
-        file: "*.gz"
-        release_id: ${{ steps.create_release.outputs.id }}
-        overwrite: true
-        verbose: true
-
-    - name: Upload checksum.txt
-      uses: xresloader/upload-to-github-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        draft: false
-        file: ${{ steps.image_string.outputs.image_string }}.checksum.txt
-        release_id: ${{ steps.create_release.outputs.id }}
-        overwrite: true
-        verbose: true
+          Docker images released on ${{ steps.date.outputs.date }}
+        files: |
+          release_assets/*.tar.gz
+          release_assets/sha256.txt
