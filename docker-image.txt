@@ -1,4 +1,3 @@
-gcr.io/kasten-images/paygo-daemonset:8.5.13
 gcr.io/kasten-images/aggregatedapis:8.5.13
 gcr.io/kasten-images/auth:8.5.13
 gcr.io/kasten-images/bloblifecyclemanager:8.5.13
