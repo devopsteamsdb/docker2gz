@@ -24,7 +24,7 @@ gcr.io/kasten-images/frsession:8.5.13
 gcr.io/kasten-images/ocpconsoleplugin:8.5.13
 gcr.io/kasten-images/k10tools:8.5.13
 gcr.io/kasten-images/vbrintegrationapi:8.5.13
-ghcr.io/dexidp/dex:8.5.13
-ghcr.io/kanisterio/kanister-tools:8.5.13
+gcr.io/kasten-images/dex:8.5.13
+gcr.io/kasten-images/kanister-tools:8.5.13
 quay.io/prometheus/prometheus:v3.12.0
 quay.io/prometheus-operator/prometheus-config-reloader:v0.91.0
